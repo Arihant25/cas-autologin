@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "CAS Autologin (IIIT)",
+  "version": "1.0.0",
+  "description": "Presses Enter on login.iiit.ac.in CAS once the username and password are prefilled.",
+  "permissions": ["storage", "debugger"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "CAS Autologin: ON (click to toggle)" },
+  "content_scripts": [
+    {
+      "matches": ["https://login.iiit.ac.in/cas/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
